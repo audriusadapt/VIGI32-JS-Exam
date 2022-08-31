@@ -13,37 +13,21 @@ const pounds = (kilos) => kilos * 2.2046;
 const grams = (kilos) => kilos * 1000;
 const ounces = (kilos) => kilos * 35.274;
 
-function calculate(kilos) {
-    const output = document.getElementById("output");
-
-    const table = document.createElement("table");
-
-    const thUnit = document.createElement("th");
-    const thAbr = document.createElement("th");
-    const thAmount = document.createElement("th");
-
-    const tableRow = document.createElement("tr");
-    const tdUnit = document.createElement("td");
-    const tdAbr = document.createElement("td");
-    const tdAmount = document.createElement("td");
-
-    thUnit.textContent = "Units";
-    thAbr.textContent = "Abbreviation";
-    thAmount.textContent = "Amount";
-
-    tdUnit.textContent = "Pounds";
-    tdAbr.textContent = "lb";
-    tdAmount.textContent = pounds(kilos);
-
-    output.append(table, thUnit, thAbr, thAmount, tableRow, tdUnit, tdAbr, tdAmount);
-}
-
 document.addEventListener('submit', (event) => {
     event.preventDefault();
 
     let kilos = document.getElementById("search").value;
 
-    calculate(kilos);
+    const lb = document.getElementById('lb');
+    const gr = document.getElementById('gr');
+    const oz = document.getElementById('oz');
+
+    const decimals = 2;
+
+    lb.textContent = pounds(kilos).toFixed(decimals);
+    gr.textContent = grams(kilos).toFixed(decimals);
+    oz.textContent = ounces(kilos).toFixed(decimals);
+
 });
 
 // Restricts input for the given textbox to the given inputFilter function.
