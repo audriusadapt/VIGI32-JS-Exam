@@ -22,7 +22,7 @@
   text-transform: uppercase;
 }
 
-form {
+form, table {
   max-width: 80%;
   margin: 50px auto;
   display: flex;
