@@ -19,3 +19,14 @@ const users = [
   { id: '8', name: 'Simon Peterson', age: 30 },
   { id: '9', name: 'Daniel Cane', age: 51 },
 ];
+
+const getUserAverageAge = (items) => items.reduce((prev, curr) => prev + curr.age, 0) / items.length;
+
+console.log(getUserAverageAge(users));
+
+const getUsersNames = (items) => items.reduce((prev, curr) => {
+  prev.push(curr.name);
+  return prev;
+}, []);
+
+console.log(getUsersNames(users));
