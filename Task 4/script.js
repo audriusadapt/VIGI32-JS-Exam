@@ -10,27 +10,29 @@ turėti bent minimalų stilių ir būti responsive;
 -------------------------------------------------------------------------- */
 const ENDPOINT = 'cars.json';
 
-$.getJSON("test.json", function(json) {
-    console.log(json); // this will show the info it in firebug console
-});
-
-console.log(mydata);
 const output = document.getElementById("output");
 
 const addCard = (car) => {
     const card = document.createElement("div");
-    const brand = document.createElement("h4");
+    const brand = document.createElement("h3");
     const models = document.createElement("ul");
-    const model = document.createElement("li");
 
     card.classList.add("card");
 
     output.append(card);
-    card.append(brand, moodels);
+    card.append(brand, document.createElement("br"), models);
+
+
+    brand.textContent = car.brand;
 
     car.models.forEach(item => {
+        const model = document.createElement("li");
+        console.log(item);
         models.append(model);
         model.textContent = item;
     });
-
 }
+
+fetch(ENDPOINT)
+    .then(res => res.json())
+    .then(data => data.forEach(item => addCard(item)));
