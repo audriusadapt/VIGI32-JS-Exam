@@ -15,8 +15,8 @@ class Movie {
         this.title = title;
         this.director = director;
         this.budget = budget;
-        this.wasExpensive = () => this.budget > 100000000000000;
     }
+    wasExpensive = () => this.budget > 100000000000000;
 }
 
 const expensive = new Movie('Simtas milijonu milijonu', 'Audrius', 100000000000001);
